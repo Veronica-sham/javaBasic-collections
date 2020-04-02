@@ -2,7 +2,9 @@ package com.cultivation.javaBasic.showYourIntelligence;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class Sequence implements Iterable<Integer> {
     private final Integer start;
@@ -23,13 +25,17 @@ public class Sequence implements Iterable<Integer> {
 class SequenceIterator implements Iterator<Integer> {
     // TODO: You can add additional fields or methods if you want.
     // <--start
-
+    private List<Integer> sequence;
+    private int currentIndex = 0;
     // --end-->
 
     SequenceIterator(Integer start, Integer end) {
         // TODO: please implements the following code to pass the test
         // <--start
-        throw new NotImplementedException();
+        sequence=new ArrayList<>();
+        for(int i=start;i<end;i++) {
+            sequence.add(i);
+        }
         // --end-->
     }
 
@@ -37,7 +43,7 @@ class SequenceIterator implements Iterator<Integer> {
     public boolean hasNext() {
         // TODO: please implements the following code to pass the test
         // <--start
-        throw new NotImplementedException();
+        return currentIndex < sequence.size() && sequence.get(currentIndex) != null;
         // --end-->
     }
 
@@ -45,7 +51,7 @@ class SequenceIterator implements Iterator<Integer> {
     public Integer next() {
         // TODO: please implements the following code to pass the test
         // <--start
-        throw new NotImplementedException();
+        return sequence.get(currentIndex++);
         // --end-->
     }
 }
